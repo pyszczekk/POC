@@ -1,0 +1,18 @@
+clearvars;
+close all;
+clc;
+
+img = imread('parrow.bmp');
+
+figure();
+imshow(img);
+
+
+xReScale=1.5;
+yReScale=1.5;
+
+[YY,XX]=size(img);
+nYY = round(YY*yReScale);
+nXX = round(XX*xReScale);
+
+newImg = uint(zeros(nYY, ))
