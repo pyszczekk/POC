@@ -2,13 +2,10 @@ clearvars;
 close all;
 clc;
 
-img = imread('parrot.bmp');
-
-figure();
-imshow(img);
+img = imread('clock.bmp');
 
 
-xReScale=1.5;
+xReScale=2.5;
 yReScale=1.5;
 
 [YY,XX]=size(img);
@@ -36,11 +33,14 @@ for jj = 0:(nYY-1)
         B = double(img(j+1, i+2));
         C = double(img(j+2, i+1));
         D = double(img(j+2, i+2));
-        
+        i0 = ii*xStep -i;
+        j0 = jj*yStep - j;
        % newImg(jj+1, ii+1) =A*(0-j)*(0-i)+B*(i+1)*(0-j)+C*(i+1)*(j+1)+D*(j+1)*(0-i);
-        newImg(jj+1,ii+1)=[1-i i]*[A D; B C]*[1-j; j];
+        newImg(jj+1,ii+1)=[1-i0 i0]*[A D; B C]*[1-j0; j0];
    end    
 end
 
+figure();
+imshow(img)
 figure();
 imshow(uint8(newImg))
