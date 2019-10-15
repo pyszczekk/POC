@@ -6,7 +6,7 @@ img = imread('clock.bmp');
 
 
 xReScale=2.5;
-yReScale=1.5;
+yReScale=2.5;
 
 [YY,XX]=size(img);
 nYY = round(YY*yReScale);
@@ -22,11 +22,11 @@ for jj = 0:(nYY-1)
         i=floor(ii*xStep);
         j=floor(jj*yStep);
         
-        if i>=XX-2
-            i=XX-3;
+        if i>=XX-1
+            i=XX-2;
         end
-        if j>=YY-2
-            j=YY-3;
+        if j>=YY-1
+            j=YY-2;
         end
             
         A = double(img(j+1,i+1));

@@ -1,0 +1,64 @@
+%Karolina Pieszczek, zadanie domowe - lab2
+clearvars;
+close all;
+clc;
+
+load('a1.mat');
+
+
+img = imread('clock.bmp');
+
+
+xReScale=2.5;
+yReScale=1.5;
+
+[YY,XX]=size(img);
+nYY = round(YY*yReScale);
+nXX = round(XX*xReScale);
+
+newImg = uint8(zeros(nYY, nXX));
+
+xStep = XX/nXX;
+yStep = YY/nYY;
+
+for jj = 0:(nYY-1)
+   for ii=0:(nXX-1)
+        i=floor(ii*xStep);
+        j=floor(jj*yStep);
+        
+        if i>=XX-1
+            i=XX-2;
+        end
+        if j>=YY-1
+            j=YY-2;
+        end
+            
+        A = [j+1,i+1];
+        B = (img(j+1, i+2));
+        C = (img(j+2, i+1));
+        D = (img(j+2, i+2));
+        i0 = ii*xStep -i;
+        j0 = jj*yStep - j;
+        
+        [pA, pAx, pAy, pAxy] = pochodne([j+1,i+1], img);
+        [pB, pBx, pBy, pBxy] = pochodne([j+1, i+2, img);
+        [pC, pCx, pCy, pCxy] = pochodne([], img);
+        [pD, pDx, pDy, pDxy] = pochodne(D, img);
+        
+        
+       % newImg(jj+1, ii+1) =A*(0-j)*(0-i)+B*(i+1)*(0-j)+C*(i+1)*(j+1)+D*(j+1)*(0-i);
+        jCoef = [pixA; pixB; pixD; pixC; pixAx; pixBx; pixDx; pixCx; pixAy; pixBy; pixDy; pixCy; pixAxy; pixBxy; pixDxy; pixCxy ];
+        a = A1.A1 * double(jCoef);
+        aCoef = [a(1), a(5), a(9), a(13); a(2), a(6), a(10), a(14); a(3), a(7), a(11), a(15); a(4), a(8), a(12), a(16)];
+        
+        % new pixel value
+        newPix = [1 j j^2 j^3] * aCoef * [1; i; i^2; i^3];
+        
+        newImg(jj+1, ii+1) = abs(newPix);
+   end    
+end
+
+figure();
+imshow(img)
+figure();
+imshow(uint8(newImg))
