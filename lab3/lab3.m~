@@ -1,0 +1,21 @@
+close all;
+clearvars;
+clc;
+
+
+load('funkcjeLUT.mat');
+figure(1);
+plot(pila);
+
+img = imread('jet.bmp');
+figure(2);
+imshow(img);
+
+newImg = intlut(img,kwadratowa);
+figure(3);
+imshow(newImg);
+
+
+i = imread('lena.bmp');
+figure(4);
+lutImg(i,)
