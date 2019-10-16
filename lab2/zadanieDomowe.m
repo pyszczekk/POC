@@ -33,7 +33,7 @@ for jj = 0:(nYY-1)
             j=YY-2;
         end
             
-       A = double(img(j+1,i+1));
+        A = double(img(j+1,i+1));
         B = double(img(j+1, i+2));
         C = double(img(j+2, i+1));
         D = double(img(j+2, i+2));
@@ -42,7 +42,7 @@ for jj = 0:(nYY-1)
         
         [pA pAx pAy pAxy] = pochodne([j+1 i+1], img);
         [pB pBx pBy pBxy] = pochodne([j+1 i+2], img);
-        [pC pCx pCy pCxy] = pochodne([j+2 i+2], img);
+        [pC pCx pCy pCxy] = pochodne([j+2 i+1], img);
         [pD pDx pDy pDxy] = pochodne([j+2 i+2], img);
         
        % newImg(jj+1, ii+1) =A*(0-j)*(0-i)+B*(i+1)*(0-j)+C*(i+1)*(j+1)+D*(j+1)*(0-i);
