@@ -9,25 +9,21 @@ imgAdd = imadd(img1, img2);
 figure(1);
 imshow(imgAdd);
 title("wynik sumowania 1 ");
-
-figure(2);
-
 imgAdd2 = imadd(img1, img2,'uint16');
+figure(2);
 imshow(imgAdd2,[]);
 title("wynik sumowania 2 (uint16)");
 
 %--------------------------------------- odejmowanie
 
-figure(3);
 imgSub = imsubtract(img1, img2);
-
+figure(3);
 imshow(imgSub);
 title("wynik odejmowania 1 ");
-
-figure(4);
 img2b = int16(img2);
 img1b=int16(img1);
 imgSub2 = imsubtract(img1b, img2b);
+figure(4);
 imshow(imgSub2,[]);
 title("wynik odejmowania 2 (uint16)");
 
@@ -46,11 +42,6 @@ imgMul2 = immultiply(img1, maska);
 imshow(imgMul2);
 title('mnozenie 2');
 
-
-figure(7);
-imgMul3 = immultiply(img1, 2.5);
-imshow(imgMul3);
 %------------------------------------- negatyw
-figure(8)
-imshow(imcomplement(img2));
-title('negatyw');
+figure(7)
+i
