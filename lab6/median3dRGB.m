@@ -9,7 +9,7 @@ clear all;
 close all;
 
 %% Wczytanie obrazu
-iI=imread('lenaRGB.bmp');
+iI=imread('lenaRGBszum.bmp');
 
 %% Ustalenie rozmiaru maski
 rozmiarMaski =3;

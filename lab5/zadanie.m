@@ -42,10 +42,8 @@ for i=1:X
         z=mk +(1/N)*(array{N}-array{1});
         array=array(2:N);
         array{N}=z;
-        for k=1:N
-            m=m+array{k};
-        end
-        m=m/N;
+      
+        m=z;
         t = a*m;
         if img(i,j) > t
             imgBW(i,j) = 255;
