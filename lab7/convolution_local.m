@@ -4,8 +4,7 @@ function data_filtered = convolution_local(data,local_window)
     
     for i = 1:Nx
         patch = reshape(data(:, i), local_window);
-        Wn=sum(sum(H));
-        data_filtered(i) =1/Wn * sum(sum(patch .*H));
+        data_filtered(i) = sum(sum(patch .*H));
     end
 end
 

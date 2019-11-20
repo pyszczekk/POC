@@ -1,8 +1,8 @@
-function data_filtered = billateral_local(data, local_window)
+function data_filtered = billateral_local(data, local_window,sigma)
     Nx = size(data, 2);
     Ncy = ceil(local_window(1)/2);
     Ncx = ceil(local_window(2)/2);
-    sigma_r = 3;
+    sigma_r = sigma;
     
     for i=1:Nx
         H = fspecial('gaussian', local_window, 25);
