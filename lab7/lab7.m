@@ -34,7 +34,7 @@ subplot(1,3,2);
 imshow(convolution(I_noisy2, [3, 3]), []);
 title('convolution');
 subplot(1,3,3)
-imshow(bilateral(I_noisy2, [3, 3],1), [])
+imshow(bilateral(I_noisy2, [3, 3],0.05), [])
 title('bilateral')
 
 
