@@ -4,7 +4,6 @@ function data_filtered = bilateral_local(data, local_window,sigma)
     Ncx = ceil(local_window(2)/2);
     odchylenieS = 25;
     for i=1:Nx
-        %v1
         h = fspecial('gaussian', local_window, odchylenieS);
         patch = reshape(data(:, i), local_window);
         
