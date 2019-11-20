@@ -1,4 +1,5 @@
 function data_filtered = bilateral_local(data, local_window,sigma)
+  
     Nx = size(data, 2);
     Ncy = ceil(local_window(1)/2);
     Ncx = ceil(local_window(2)/2);
@@ -17,11 +18,9 @@ function data_filtered = bilateral_local(data, local_window,sigma)
 %         [rows, cols] = find(patch == patch);
 %         rows = reshape(rows, local_window);
 %         cols = reshape(cols, local_window);
-%         dist = sqrt((Ncx - rows).^2 + (Ncy - cols).^2);
-%         psi = exp(((-1)*(dist .* dist))/(2*odchylenieS^2));
-%         gamma_arg = abs(patch - patch(Ncy, Ncx));
-%         gamma = exp(((-1)*(gamma_arg .* gamma_arg))/(2*sigma^2));
-%         Wn =  sum(sum(psi .* gamma));
-%         data_filtered(i) = sum(sum( psi .* gamma .* patch))/Wn;
+%         dist = sqrt((Ncx - rows).^2 + (Ncy - cols).^2).* h;
+%         gammaDist = exp(((-1)*(dist .* dist))/(2*odchylenieS^2));
+%         Wn =  sum(sum(h .* gammaDist));
+%         data_filtered(i) = sum(sum(h .* gammaDist .* patch))/Wn;
     end
 end
