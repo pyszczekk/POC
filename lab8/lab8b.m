@@ -50,7 +50,7 @@ imshow(img)
 title('oryginal');
 subplot(1,3,2);
 imshow(imgE)
-title('edyjca');
+title('otwarcie');
 subplot(1,3,3);
 imshow(imgR)
 title('rekonstrukcja');
