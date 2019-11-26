@@ -22,7 +22,7 @@ imshow(imgE3);
 title("erozja x3");
 
 buzka = imread('buzka.bmp');
-E = [1,1; 1,1; 1,1]
+E = [1,0; 0,1]
 figure(2)
 subplot(1,2,1);
 imshow(buzka)

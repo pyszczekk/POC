@@ -33,12 +33,12 @@ imshow(bwmorph(img,'skel',Inf));
 %rekonstrukcja morfologiczna
 
 img = imread('text.bmp');
-SE = strel('square', 3);
+
 SE2 = ones(51, 1);
 
 imgE = img; 
-imgE = imerode(imgE, SE);
-imgE = imdilate(imgE, SE);
+imgE = imerode(imgE, SE2);
+imgE = imdilate(imgE, SE2);
 
 marker = imerode(img, SE2);
 mask = img;
@@ -50,9 +50,10 @@ imshow(img)
 title('oryginal');
 subplot(1,3,2);
 imshow(imgE)
-title('edited');
+title('edyjca');
 subplot(1,3,3);
 imshow(imgR)
+title('rekonstrukcja');
 
 
 %wypelnienie dziur i czyszczenie brzegu
