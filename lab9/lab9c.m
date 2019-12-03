@@ -30,7 +30,7 @@ edges = edge(img, 'canny');
 
 figure(2);
 imshow(H, []);
-P = houghpeaks(H, 6);
+P = houghpeaks(H, 8);
 hold on;
 plot(P, 'o');
 
