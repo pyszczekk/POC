@@ -37,7 +37,6 @@ while iStack > 0
     iStack = iStack-1;
     nS =nS + 1;
     mV = (mV * (nS - 1) + img(px, py)) / nS;
-    
     if px > 1 && px < X && py > 1 && py < Y
         for ix = px-1:px+1
             for iy = py-1:py+1
