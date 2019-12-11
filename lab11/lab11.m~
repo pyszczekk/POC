@@ -29,38 +29,15 @@ for y = 2 : (YY-1)
                  img(y, x) = min_;
               else
                  img(y, x) = min_;
-                 minsasiedzi = nonzero(nonzero~=min_);
-                 minimalNeighbor = min(minsasiedzi);
-                 
-                 id = union(min_, minimalNeighbor, id);
+               
              end
           end 
       end
    end
 end
-
-imCopy = img;
-
-    for i = 1:N
-        startId=i;
-        while startId ~= id(startId)
-            startId = id(startId);
-        end
-        lut(i) = startId;
-    end
-    
-    for y = 2:(YY-1)
-        for x = 2:(XX-1)
-           if (img(y,x) > 0)
-             img(y,x) = lut(imCopy(y,x));
-           end
-        end
-     end
-     
-     figure;
-     subplot(1,2,1);
-     imshow(imCopy, []);
-     title('przed lut');
-     subplot(1,2,2);
-     imshow(img, []);
-     title('po lut');
+img = label2rgb(img);
+figure(1)
+subplot(1,2,1);
+imshow(img,[]);
+subplot(1,2,2);
+imshow(imread('ccl1Result.png'));

@@ -29,15 +29,14 @@ for y = 2 : (YY-1)
                  img(y, x) = min_;
               else
                  img(y, x) = min_;
-                 minsasiedzi = nonzero(nonzero~=min_);
-                 minimalNeighbor = min(minsasiedzi);
                  
-                 id = union(min_, minimalNeighbor, id);
+                 id = union(min_, max_, id);
              end
           end 
       end
    end
 end
+
 
 imCopy = img;
 
@@ -57,7 +56,7 @@ imCopy = img;
         end
      end
      
-     figure;
+     figure(2);
      subplot(1,2,1);
      imshow(imCopy, []);
      title('przed lut');
