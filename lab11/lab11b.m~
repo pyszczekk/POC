@@ -42,9 +42,7 @@ imCopy = img;
 
     for i = 1:N
         startId=i;
-        while startId ~= id(startId)
-            startId = id(startId);
-        end
+        startId=root(startId,id);
         lut(i) = startId;
     end
     
@@ -56,7 +54,7 @@ imCopy = img;
         end
      end
      
-     figure;
+     figure(2);
      subplot(1,2,1);
      imshow(imCopy, []);
      title('przed lut');

@@ -10,11 +10,9 @@ if startId > endId
     endId = p;
 end
 
-while startId ~= array(startId)
-    startId = array(startId);
-end
-while endId ~= array(endId)
-    endId = array(endId);
-end
+startId= root(startId,array)
+
+endId= root(endId,array)
+
 modifiedArray(startId) = endId;
 end

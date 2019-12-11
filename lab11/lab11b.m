@@ -41,10 +41,7 @@ end
 imCopy = img;
 
     for i = 1:N
-        startId=i;
-        while startId ~= id(startId)
-            startId = id(startId);
-        end
+        startId=root(i,id);
         lut(i) = startId;
     end
     
