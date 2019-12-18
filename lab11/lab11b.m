@@ -55,8 +55,8 @@ imCopy = img;
      
      figure(2);
      subplot(1,2,1);
-     imshow(imCopy, []);
+     imshow(label2rgb(imCopy));
      title('przed lut');
      subplot(1,2,2);
-     imshow(img, []);
+     imshow(label2rgb(img));
      title('po lut');

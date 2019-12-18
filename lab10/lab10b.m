@@ -14,13 +14,13 @@ img = rgb2hsv(img);
 imgH = double(img(:,:,1));
 
 subplot(2,2,2);
-imshow(imgH,[]);
+imshow(imgH);
 title('H');
 
 global sLimit vLimit MRes segRes index; % do split
 sLimit = 4;
-vLimit = 0.05;
-index = -1;
+vLimit = 0.01;
+index = 1
 
 [y, x] = size(imgH);
 
@@ -30,7 +30,7 @@ MRes = zeros(y, x);
 split(imgH, 1, 1, x, y);
 
 colorThreshold = 5/255;
-minAreaSize = 27;
+minAreaSize = 20;
 
 i = 0;
 while i <= index
@@ -88,5 +88,5 @@ end
 finalImage = label2rgb(segRes);
 
 subplot(2,2,4);
-imshow(finalImage);
+imshow(finalImage,[]);
 title('final')
