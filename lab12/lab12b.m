@@ -1,68 +1,65 @@
-close all;
 clearvars;
+close all;
 clc;
 
-kwadrat = imread('kwadrat.bmp');
-kwadratT = imread('kwadratT.bmp');
-kwadrat45 = imread('kwadrat45.bmp');
-kwadratS = imread('kwadratS.bmp');
-kwadratKL = imread('kwadratKL.bmp');
-
-[A1,F1] = fourier(kwadrat);
-
+img = imread('lena.bmp');
+f = fft2(img);
+f= fftshift(f);
+[A,F]=fourier(img);
 
 figure(1)
-subplot(5,2,1)
-imshow(A1,[])
-title('aplituda - kwadrat')
-subplot(5,2,2)
-imshow(F1,[])
-title('faza - kwadrat')
-
-%translacja
-[A,F] = fourier(kwadratT);
-subplot(5,2,3)
-imshow(A,[])
-title('aplituda - kwadrat T')
-
-subplot(5,2,4)
+subplot(1,3,1)
+imshow(img)
+title('oryginal')
+subplot(1,3,2);
+imshow(A,[]);
+title('amplituda')
+subplot(1,3,3);
 imshow(F,[])
-title('faza - kwadrat T')
+title('faza')
 
+[f1,f2]=freqspace(512, 'meshgrid');
 
-%rotacja
-[A,F] = fourier(kwadrat45);
+Hd = ones(512);
 
-subplot(5,2,5)
-imshow(A,[])
-title('aplituda - kwadrat 45')
+r=sqrt(f1.^2+f2.^2);
 
-subplot(5,2,6)
-imshow(F,[])
-title('faza - kwadrat 45')
+Hd((r>0.1))=0;
 
+figure(2)
 
-%rozmiar
-[A,F] = fourier(kwadratS);
+colormap(jet(64));
+mesh(f1,f2,Hd);
 
-subplot(5,2,7)
-imshow(A,[])
-title('aplituda - kwadrat S')
+title('wizualizacja filtru')
+figure(3)
+imshow(f.*Hd);
+title('wynik')
 
-subplot(5,2,8)
-imshow(F,[])
-title('faza - kwadrat S')
+h = fwind1(Hd, hanning(21));
 
-%kombinacja liniowa
-[A,F] = fourier(kwadratKL);
+[H f1 f2] = freqz2(h,512,512);
+figure(4)
+colormap(jet(64));
+mesh(f1,f2,H);
+title('wizualizacja 2d')
 
-subplot(5,2,9)
-imshow(A,[])
-title('aplituda - kwadrat KL')
+figure(5)
+imshow(f.*H);
+title('wynik 2d')
 
-subplot(5,2,10)
-imshow(F,[])
-title('faza - kwadrat KL')
+[width, height] = size(image);
+sigma = 10;
+mask = fspecial('gaussian', width, sigma);
 
+mask = mat2gray(mask);
+
+figure(6)
+imshow(mask)
+title('wizualizacja- gauss');
+
+figure(7)
+imshow(f.*mask);
+title('wynik gauss');
 
 
