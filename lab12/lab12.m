@@ -25,3 +25,8 @@ title('amplituda')
 subplot(2,2,4)
 imshow(F,[])
 title('faza')
+
+
+figure(2)
+subplot()
+

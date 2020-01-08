@@ -19,12 +19,18 @@ subplot(1,3,3);
 imshow(F,[])
 title('faza');
 
-th = 39
+th = 15
 fft2abs = log10(abs(f)+1);
 f(fft2abs>th)=0;
 imgfft2 = fftshift(f);
+[width, height] = size(img);
+sigma = 10;
+mask = fspecial('gaussian', width, sigma);
+
+mask = mat2gray(mask);
 unshifted = ifftshift(imgfft2);
 imgf = ifft2(unshifted);
+
 
 figure(2)
 subplot(1,2,1)
