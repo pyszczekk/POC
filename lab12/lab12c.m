@@ -19,11 +19,13 @@ subplot(1,3,3);
 imshow(F,[])
 title('faza');
 
-th = 39
+th = 10
 fft2abs = log10(abs(f)+1);
 f(fft2abs>th)=0;
+
 imgfft2 = fftshift(f);
 unshifted = ifftshift(imgfft2);
+
 imgf = ifft2(unshifted);
 
 figure(2)
@@ -33,7 +35,4 @@ title('oryginal');
 subplot(1,2,2);
 imshow(imgf,[]);
 title('po usunieciu zaklocen');
-
-
-
 
